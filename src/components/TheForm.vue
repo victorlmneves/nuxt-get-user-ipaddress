@@ -4,9 +4,7 @@ import { ref } from "vue";
 const form = ref({
     name: "",
 });
-
 const ipAddress = ref("");
-
 const submitted = ref(false);
 
 const handleSubmit = async () => {
@@ -21,7 +19,7 @@ const handleSubmit = async () => {
     });
 
     if (data.value) {
-        ipAddress.value = data.value.ip;
+        ipAddress.value = data.value;
     }
 
     console.info("[data]", data?.value);
@@ -47,12 +45,16 @@ const handleSubmit = async () => {
 
 <style scoped>
 form {
-    max-width: 400px;
+    width: 100%;
     margin: auto;
 }
 
 div {
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto 1rem;
+    max-width: 400px;
+    width: 100%;
 }
 
 label {
@@ -62,7 +64,7 @@ label {
 
 input,
 textarea {
-    width: 100%;
+    width: calc(100% - 1rem);
     padding: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
