@@ -5,6 +5,8 @@ const form = ref({
     name: "",
 });
 
+const ipAddress = ref("");
+
 const submitted = ref(false);
 
 const handleSubmit = async () => {
@@ -18,8 +20,12 @@ const handleSubmit = async () => {
         },
     });
 
-    console.warn("[data]", data?.value);
-    console.warn("[error]", error?.value);
+    if (data.value) {
+        ipAddress.value = data.value.ip;
+    }
+
+    console.info("[data]", data?.value);
+    console.info("[error]", error?.value);
 };
 </script>
 
@@ -33,8 +39,8 @@ const handleSubmit = async () => {
             <button type="submit">Submit</button>
         </form>
         <div v-if="submitted">
-            <p>Form submitted with the following data:</p>
-            <pre>{{ form }}</pre>
+            <p>Form submitted from the following IP Address:</p>
+            <pre>{{ ipAddress }}</pre>
         </div>
     </div>
 </template>
