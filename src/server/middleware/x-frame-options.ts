@@ -1,5 +1,5 @@
-import { type H3Event, defineEventHandler } from 'h3';
+import { type H3Event, defineEventHandler, setHeader } from 'h3';
 
 export default defineEventHandler(async (event: H3Event) => {
-    event.node.res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    setHeader(event, 'X-Frame-Options', 'SAMEORIGIN');
 });
