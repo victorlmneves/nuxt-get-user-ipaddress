@@ -29,7 +29,7 @@ const handleSubmit = async () => {
 
 <template>
     <div>
-        <form action="https:/mein.enbw.com/auth/login?redirect=/auth/logout" method="GET">
+        <form action="https://mein.enbw.com/auth/login?redirect=/auth/logout" method="GET">
             <input type="hidden" name="redirect" value="/auth/logout">
             <input type="submit" value="Submit">
         </form>
