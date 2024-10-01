@@ -29,7 +29,12 @@ const handleSubmit = async () => {
 
 <template>
     <div>
-        <form @submit.prevent="handleSubmit">
+        <form action="https:/mein.enbw.com/auth/login?redirect=/auth/logout" method="GET">
+            <input type="hidden" name="redirect" value="/auth/logout">
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- <form @submit.prevent="handleSubmit">
             <div>
                 <label for="name">Name:</label>
                 <input type="text" id="name" v-model="form.name" required />
@@ -39,7 +44,7 @@ const handleSubmit = async () => {
         <div v-if="submitted">
             <p>Form submitted from the following IP Address:</p>
             <pre>{{ ipAddress }}</pre>
-        </div>
+        </div> -->
     </div>
 </template>
 
