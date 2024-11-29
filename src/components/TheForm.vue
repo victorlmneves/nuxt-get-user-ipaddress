@@ -19,7 +19,7 @@ const handleSubmit = async () => {
     });
 
     if (data.value) {
-        ipAddress.value = data.value;
+        ipAddress.value = typeof data.value === 'string' ? data.value : '';
     }
 
     console.info("[data]", data?.value);
@@ -29,7 +29,7 @@ const handleSubmit = async () => {
 
 <template>
     <div>
-        <form action="https://meine.enbw.com/auth/login?redirect=/auth/logout" method="GET">
+        <form action="https://dev-meine.enbw.com/auth/login?redirect=/auth/logout" method="GET">
             <input type="hidden" name="redirect" value="/auth/logout">
             <input type="submit" value="Submit">
         </form>
